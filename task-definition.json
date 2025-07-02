@@ -1,0 +1,23 @@
+{
+  "family": "fargateflow-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "fargateflow-container",
+      "image": "008971631116.dkr.ecr.us-east-1.amazonaws.com/fargateflow-app:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "executionRoleArn": "arn:aws:iam::008971631116:role/ecsTaskExecutionRole"
+
+}
+
